@@ -1,0 +1,58 @@
+{
+  "nav.about": "About",
+  "nav.team": "Team",
+  "nav.services": "Services",
+  "nav.projects": "Projects",
+  "nav.contact": "Contact",
+
+  "hero.subtitle": "We are an elite web design team specializing in 3D interactive experiences, futuristic UI/UX, and AI-powered digital systems.",
+  "hero.explore": "Explore Our Work",
+  "hero.meet": "Meet the Team",
+
+  "about.label": "ABOUT B-20",
+  "about.heading": "We build digital experiences that feel like stepping into the future.",
+  "about.body": "B-20 is a specialized web design and development team operating at the intersection of cutting-edge 3D technology, AI-powered interfaces, and premium visual design. Every project we create is engineered to leave a lasting impression — immersive, interactive, and unmistakably modern.",
+  "about.stat1": "Projects Delivered",
+  "about.stat2": "Core Team Members",
+  "about.stat3": "Client Satisfaction",
+
+  "team.label": "THE TEAM",
+  "team.heading": "Three Minds. One Vision.",
+
+  "services.label": "WHAT WE DO",
+  "services.heading": "Capabilities",
+  "services.dev.title": "Web Development",
+  "services.dev.desc": "Full-stack web applications built with modern frameworks. From responsive landing pages to complex SPAs with real-time features, API integrations, and database architecture.",
+  "services.design.title": "UI/UX Design",
+  "services.design.desc": "User-centered interface design that balances aesthetics with functionality. Wireframing, prototyping, interaction design, and design systems that scale across products and teams.",
+  "services.branding.title": "Branding",
+  "services.branding.desc": "Complete brand identity systems — logos, color palettes, typography, and visual guidelines that establish a cohesive and memorable brand presence across all touchpoints.",
+  "services.ai.title": "AI Systems",
+  "services.ai.desc": "Intelligent integrations powered by machine learning. Chatbots, recommendation engines, automated workflows, and AI-enhanced user experiences that adapt and learn.",
+
+  "projects.label": "SELECTED WORK",
+  "projects.heading": "Featured Projects",
+  "projects.1.title": "Nexus Dashboard",
+  "projects.1.desc": "A real-time analytics dashboard with 3D data visualizations and AI-powered insights for enterprise teams.",
+  "projects.2.title": "Void Commerce",
+  "projects.2.desc": "Premium e-commerce platform with immersive product showcases and seamless checkout flow.",
+  "projects.3.title": "Neural Interface",
+  "projects.3.desc": "AI command center with natural language processing and adaptive workflow automation.",
+
+  "contact.label": "GET IN TOUCH",
+  "contact.heading": "Let's Build the Future",
+  "contact.subtext": "Have a project in mind? We'd love to hear about it.",
+  "contact.name": "Name",
+  "contact.name_placeholder": "Your name",
+  "contact.email": "Email",
+  "contact.email_placeholder": "your@email.com",
+  "contact.message": "Message",
+  "contact.message_placeholder": "Tell us about your project...",
+  "contact.send": "Send Message",
+  "contact.sending": "Sending...",
+  "contact.sent": "Sent ✓",
+  "contact.error": "Failed to send. Try again.",
+
+  "footer.copyright": "© 2025 B-20 Studio. All rights reserved.",
+  "footer.back": "Back to Top"
+}

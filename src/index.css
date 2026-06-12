@@ -1,0 +1,196 @@
+@import '@fontsource/space-grotesk/400.css';
+@import '@fontsource/space-grotesk/600.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/jetbrains-mono/400.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --void-black: #050508;
+    --deep-navy: #0A0E1A;
+    --surface-navy: #111827;
+    --electric-cyan: #00F0FF;
+    --neon-purple: #B24BFF;
+    --electric-blue: #3B6BFF;
+    --white: #FFFFFF;
+    --cyan-tint: rgba(0, 240, 255, 0.08);
+    --purple-tint: rgba(178, 75, 255, 0.06);
+    --grid-cyan: rgba(0, 240, 255, 0.12);
+
+    --background: 240 33% 2%;
+    --foreground: 0 0% 100%;
+    --card: 222 47% 8%;
+    --card-foreground: 0 0% 100%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 185 100% 50%;
+    --primary-foreground: 240 33% 2%;
+    --secondary: 275 100% 65%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 47% 8%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 275 100% 65%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 185 100% 50%;
+    --input: 222 47% 8%;
+    --ring: 185 100% 50%;
+    --radius: 0.625rem;
+  }
+
+  body {
+    background-color: var(--void-black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  @media (max-width: 767px) {
+    body {
+      cursor: auto;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  * {
+    @apply border-border;
+  }
+}
+
+/* RTL Support — scoped to main site only */
+[dir="rtl"] main section,
+[dir="rtl"] main section *,
+[dir="rtl"] nav,
+[dir="rtl"] nav *,
+[dir="rtl"] footer,
+[dir="rtl"] footer * {
+  text-align: inherit;
+}
+
+[dir="rtl"] main,
+[dir="rtl"] main .section-padding,
+[dir="rtl"] nav > div,
+[dir="rtl"] footer > div {
+  text-align: right;
+}
+
+[dir="rtl"] main .font-space,
+[dir="rtl"] footer .font-space {
+  letter-spacing: 0;
+}
+
+[dir="rtl"] main .ml-auto {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] main .mr-auto {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+[dir="rtl"] main .gradient-cyan-purple {
+  background: linear-gradient(135deg, #B24BFF, #00F0FF);
+}
+
+[dir="rtl"] main .origin-left,
+[dir="rtl"] nav .origin-left {
+  transform-origin: right;
+}
+
+[dir="rtl"] main input,
+[dir="rtl"] main textarea,
+[dir="rtl"] main .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] main .text-right {
+  text-align: left;
+}
+
+[dir="rtl"] main .service-animate {
+  text-align: right;
+}
+
+[dir="rtl"] main h1,
+[dir="rtl"] main h2,
+[dir="rtl"] main h3 {
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] main .stat-label {
+  letter-spacing: 0.05em !important;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-border {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
+}
+
+@keyframes float-1 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes float-2 {
+  0%, 100% { transform: translateY(-2px); }
+  50% { transform: translateY(2px); }
+}
+
+@keyframes float-3 {
+  0%, 100% { transform: translateY(2px); }
+  50% { transform: translateY(-2px); }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@layer components {
+  .font-mono-terminal {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .neon-glow-text {
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.4), 0 0 40px rgba(178, 75, 255, 0.2);
+  }
+
+  .glass-panel {
+    background: rgba(10, 14, 26, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 240, 255, 0.15);
+  }
+
+  .gradient-cyan-purple {
+    background: linear-gradient(135deg, #00F0FF, #B24BFF);
+  }
+
+  .section-padding {
+    padding-top: clamp(80px, 12vh, 160px);
+    padding-bottom: clamp(80px, 12vh, 160px);
+    padding-left: clamp(20px, 6vw, 80px);
+    padding-right: clamp(20px, 6vw, 80px);
+  }
+
+  .content-max {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
