@@ -1,74 +1,104 @@
-# React + TypeScript + Vite
+# B-20 Studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Elite web design team specializing in 3D interactive experiences, futuristic UI/UX, and AI-powered digital systems.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **3D Interactive Scene** — Three.js laptop model with live terminal simulation using `@react-three/fiber`
+- **Smooth Scrolling** — Lenis-powered smooth scroll with GSAP ScrollTrigger animations
+- **Bilingual (AR/EN)** — Full Arabic/English i18n with RTL layout support
+- **Admin Dashboard** — Manage projects, team members, and contact messages with CRUD operations
+- **Firebase Integration** — Optional Firestore backend with automatic localStorage fallback
+- **Responsive Design** — Mobile hamburger menu, adaptive layouts, touch-friendly
+- **Vercel-ready** — Pre-configured for Vercel deployment with SPA rewrites
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Layer | Technology |
+|-------|-----------|
+| Framework | React 19, TypeScript 5.9 |
+| Build | Vite 7 |
+| Styling | Tailwind CSS 3.4, shadcn/ui |
+| 3D | Three.js, @react-three/fiber, @react-three/drei |
+| Animations | GSAP, ScrollTrigger, Lenis |
+| Routing | react-router v7 |
+| Backend | Firebase Firestore (optional) |
+| Deployment | Vercel |
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Type-check and build for production |
+| `npm run preview` | Preview production build locally |
+| `npm run vercel` | Deploy to Vercel |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
+
 ```
-"# beto" 
+src/
+├── 3d/                  # Three.js components (LaptopScene, TerminalScreen, Particles)
+├── components/          # Shared UI components (Navigation, NeonButton, admin/)
+├── contexts/            # React contexts (AdminContext, LanguageContext)
+├── hooks/               # Custom hooks (useEditableContent, use-mobile)
+├── i18n/                # Translation files (en.json, ar.json)
+├── lib/                 # Firebase, admin-lang, utils
+├── pages/               # Page components (Home, NotFound, admin/)
+├── sections/            # Page sections (Hero, About, Services, Projects, Team, Contact, Footer)
+├── App.tsx              # Root component
+└── main.tsx             # Entry point with routing
+```
+
+## Firebase Integration
+
+Firebase is optional. The app checks for environment variables at runtime:
+
+- If Firebase config is present: data is read/written to Firestore
+- If Firestore is unavailable: app falls back to localStorage automatically
+- No Firebase config: app runs entirely on localStorage
+
+Set up Firebase:
+
+1. Create a project in [Firebase Console](https://console.firebase.google.com)
+2. Enable **Authentication** (Email/Password)
+3. Create Firestore collections: `projects`, `team`, `messages`
+4. Copy `.env.example` to `.env` and fill in your config
+
+## Environment Variables
+
+```env
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+```
+
+## Deployment
+
+The project includes a `vercel.json` with:
+
+- SPA rewrites (all routes fall back to `index.html`)
+- Asset caching headers
+- Firebase environment variable secrets integration
+
+```bash
+npm run vercel
+```
+
+Or deploy via GitHub import in the Vercel Dashboard.
+
+## Default Admin Credentials
+
+> **⚠️ Local-only fallback** — `admin` / `b20admin2024`
+
+These are only used when Firebase is not configured. Change them after first login if using localStorage auth.
